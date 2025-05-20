@@ -1,11 +1,11 @@
-import { FC } from 'react'
-
-import { CountriesListProps } from '../../types/countries'
 import { CountriesItem } from './CountriesItem'
 
+import { useCountries } from '@stores/countries'
 import styles from './Countries.module.css'
 
-export const CountriesList: FC<CountriesListProps> = ({ countries }) => {
+export const CountriesList = () => {
+  const countries = useCountries((state) => state.countries)
+
   return (
     <>
       <section className={styles['countriesItems']}>

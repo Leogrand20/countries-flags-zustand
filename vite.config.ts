@@ -20,6 +20,8 @@ const alias = {
   '@icons': resolve(__dirname, 'src/assets/icons'),
   '@img': resolve(__dirname, 'src/assets/img'),
   '@fonts': resolve(__dirname, 'src/assets/fonts'),
+  '@stores': resolve(__dirname, 'src/stores'),
+  '@utils': resolve(__dirname, 'src/utils'),
 }
 
 const extensions = ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']

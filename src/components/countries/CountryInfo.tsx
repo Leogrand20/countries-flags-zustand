@@ -1,17 +1,17 @@
 import { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 
-import { selectCountry } from '../../redux/selectors/country-selectors'
 import { selectNeighbors } from '../../redux/selectors/neighbors-selectors'
 import { fetchNeighbors } from '../../redux/slices/neighborsSlice'
 import { useAppDispatch, useAppSelector } from '../../redux/store'
 
+import { useCountry } from '@stores/country'
 import styles from './Countries.module.css'
 
 export const CountryInfo: FC = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const country = useAppSelector(selectCountry)
+  const country = useCountry((state) => state.country)
   const neighbors = useAppSelector(selectNeighbors)
 
   const {

@@ -9,8 +9,8 @@
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
-      "@shared/*": ["shared/*"],
-      "@entities/*": ["entities/*"]
+      "@stores/*": ["stores/*"],
+      "@utils/*": ["utils/*"]
     },
 
     /* Bundler mode */
