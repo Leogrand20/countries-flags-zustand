@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+
+    // 🔧 Переопределения, необходимые для ESLint
+    "moduleResolution": "NodeNext", // ESLint не понимает "bundler"
+    "module": "ESNext",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node"] // минимальный набор типов, чтобы ESLint не ругался
+  },
+  "include": ["src", "index.tsx", "eslint.config.ts", "vite.config.ts"],
+  "exclude": ["dist", "node_modules"]
+}

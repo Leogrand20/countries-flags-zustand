@@ -1,0 +1,33 @@
+.header {
+  box-shadow: var(--shadow);
+  background-color: var(--colors-ui-base);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.titleLink {
+  color: var(--colors-text);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+  font-weight: var(--fw-bold);
+}
+
+.modeSwitcher {
+  color: var(--colors-text);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.ioMoon {
+  font-size: 14px;
+}
+
+.spanSwitcher {
+  margin-left: 0.2rem;
+}
