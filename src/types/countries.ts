@@ -53,3 +53,7 @@ export type CountriesItemProps = Pick<
   Country,
   'flags' | 'capital' | 'name' | 'population' | 'region'
 >
+
+export type CountriesListProps = {
+  countries: Countries
+}
