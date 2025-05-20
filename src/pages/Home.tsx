@@ -4,32 +4,28 @@ import { CountriesList } from '../components/countries/CountriesList'
 import { Preloader } from '../components/preloader/Preloader'
 import { Search } from '../components/search/Search'
 import {
-  selectCountries,
-  selectIsLoading,
-} from '../redux/selectors/countries-selectors'
-import {
   selectRegionFilter,
   selectSearchFilter,
   selectSortModeFilter,
 } from '../redux/selectors/filter-selectors'
-import { fetchCountries } from '../redux/slices/countriesSlice'
-import { useAppDispatch, useAppSelector } from '../redux/store'
+import { useAppSelector } from '../redux/store'
+import { useCountries } from '../stores/countries'
 import { Region } from '../types/regions'
 
 export const Home: FC = () => {
-  const dispatch = useAppDispatch()
-  const countries = useAppSelector(selectCountries)
+  const countries = useCountries((state) => state.countries)
+  const isLoading = useCountries((state) => state.isLoading)
+  const fetchCountries = useCountries((state) => state.fetchCountries)
   const [filteredCountries, setFilteredCountries] = useState(countries)
-  const isLoading = useAppSelector(selectIsLoading)
   const search = useAppSelector(selectSearchFilter)
   const region = useAppSelector(selectRegionFilter)
   const sortMode = useAppSelector(selectSortModeFilter)
 
   useEffect(() => {
     if (!countries.length) {
-      dispatch(fetchCountries())
+      fetchCountries()
     }
-  }, [countries.length, dispatch])
+  }, [countries.length])
 
   const handleSearch = useCallback(
     (search: string, region: Region | '', sortMode: string | null) => {
