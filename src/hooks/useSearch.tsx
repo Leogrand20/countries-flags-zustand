@@ -1,5 +1,5 @@
 import { useFilters } from '@shared-stores/filters'
-import { OnSearchHandler } from '../types/hooks'
+import { OnSearchHandler } from '@shared-types/hooks'
 
 export const useSearch = (): [string, OnSearchHandler] => {
   const search = useFilters((state) => state.search)

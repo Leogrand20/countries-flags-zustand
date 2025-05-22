@@ -1,4 +1,4 @@
-import { FiltersState, FiltersStore } from 'types/filters'
+import { FiltersState, FiltersStore } from '@shared-types/filters'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'

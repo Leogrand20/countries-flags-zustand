@@ -1,16 +1,10 @@
 import { BASE_URL } from '@shared-api/config'
+import { ApiCountry, CountryState } from '@shared-types/countries'
 import { createCountry } from '@shared-utils/createCountry'
 import { toast } from 'react-toastify'
-import { ApiCountry, Country } from 'types/countries'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
-
-type CountryState = {
-  country: Country | null
-  isLoading: boolean
-  fetchCountry: (countryName: string) => Promise<void>
-}
 
 export const useCountry = create<CountryState>()(
   devtools(

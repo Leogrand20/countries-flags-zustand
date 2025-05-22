@@ -1,5 +1,5 @@
 import { useFilters } from '@shared-stores/filters'
-import { OnCheckboxHandler } from '../types/hooks'
+import { OnCheckboxHandler } from '@shared-types/hooks'
 
 export const useSortMode = (): [string | null, OnCheckboxHandler] => {
   const sortMode = useFilters((state) => state.sortMode)

@@ -1,12 +1,11 @@
-import { FC, useEffect } from 'react'
+import { CountryInfo } from '@shared-components/countries/CountryInfo'
+import { Preloader } from '@shared-components/preloader/Preloader'
+import { useCountry } from '@shared-stores/country'
+import { useEffect } from 'react'
 import { IoArrowBack } from 'react-icons/io5'
 import { NavigateFunction, useNavigate, useParams } from 'react-router'
 
-import { useCountry } from '@shared-stores/country'
-import { CountryInfo } from '../components/countries/CountryInfo'
-import { Preloader } from '../components/preloader/Preloader'
-
-export const Details: FC = () => {
+export const Details = () => {
   const { countryName } = useParams()
   const isLoading = useCountry((state) => state.isLoading)
   const fetchCountry = useCountry((state) => state.fetchCountry)

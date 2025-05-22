@@ -1,12 +1,12 @@
+import { CountriesList } from '@shared-components/countries/CountriesList'
+import { Preloader } from '@shared-components/preloader/Preloader'
+import { Search } from '@shared-components/search/Search'
+import { useCountries } from '@shared-stores/countries'
 import { useFilters } from '@shared-stores/filters'
-import { FC, useCallback, useEffect, useState } from 'react'
-import { CountriesList } from '../components/countries/CountriesList'
-import { Preloader } from '../components/preloader/Preloader'
-import { Search } from '../components/search/Search'
-import { useCountries } from '../stores/countries'
-import { Region } from '../types/regions'
+import { Region } from '@shared-types/regions'
+import { useCallback, useEffect, useState } from 'react'
 
-export const Home: FC = () => {
+export const Home = () => {
   const countries = useCountries((state) => state.countries)
   const isLoading = useCountries((state) => state.isLoading)
   const fetchCountries = useCountries((state) => state.fetchCountries)

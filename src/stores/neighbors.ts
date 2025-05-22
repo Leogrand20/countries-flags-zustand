@@ -1,14 +1,10 @@
 import { BASE_URL } from '@shared-api/config'
+import { Country } from '@shared-types/countries'
+import { NeighborsState } from '@shared-types/neighbors'
 import { toast } from 'react-toastify'
-import { Country } from 'types/countries'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
-
-type NeighborsState = {
-  neighbors: string[]
-  fetchNeighbors: (codes: string[]) => Promise<void>
-}
 
 export const useNeighbors = create<NeighborsState>()(
   devtools(

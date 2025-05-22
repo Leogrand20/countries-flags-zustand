@@ -1,11 +1,11 @@
 import { Preloader } from '@shared-components/preloader/Preloader'
 import { useCountry } from '@shared-stores/country'
 import { useNeighbors } from '@shared-stores/neighbors'
-import { FC, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import styles from './Countries.module.css'
 
-export const CountryInfo: FC = () => {
+export const CountryInfo = () => {
   const navigate = useNavigate()
   const country = useCountry((state) => state.country)
   const neighbors = useNeighbors((state) => state.neighbors)

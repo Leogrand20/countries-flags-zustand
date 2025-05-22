@@ -1,6 +1,6 @@
 import { useFilters } from '@shared-stores/filters'
-import { OnSelectHandler } from '../types/hooks'
-import { Region } from '../types/regions'
+import { OnSelectHandler } from '@shared-types/hooks'
+import { Region } from '@shared-types/regions'
 
 export const useRegion = (): [Region | '', OnSelectHandler] => {
   const region = useFilters((state) => state.region)

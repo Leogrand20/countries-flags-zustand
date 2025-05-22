@@ -57,3 +57,15 @@ export type CountriesItemProps = Pick<
 export type CountriesListProps = {
   countries: Countries
 }
+
+export type CountriesState = {
+  countries: Countries
+  isLoading: boolean
+  fetchCountries: () => Promise<void>
+}
+
+export type CountryState = {
+  country: Country | null
+  isLoading: boolean
+  fetchCountry: (countryName: string) => Promise<void>
+}
