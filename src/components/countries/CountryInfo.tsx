@@ -1,3 +1,4 @@
+import { Preloader } from '@components/preloader/Preloader'
 import { useCountry } from '@stores/country'
 import { useNeighbors } from '@stores/neighbors'
 import { FC, useEffect } from 'react'
@@ -9,7 +10,17 @@ export const CountryInfo: FC = () => {
   const country = useCountry((state) => state.country)
   const neighbors = useNeighbors((state) => state.neighbors)
   const fetchNeighbors = useNeighbors((state) => state.fetchNeighbors)
+  const isLoading = useCountry((state) => state.isLoading)
 
+  // Показываем спиннер во время загрузки
+  if (isLoading) {
+    return <Preloader />
+  }
+
+  // Проверка на наличие данных
+  if (!country) {
+    return <p>Нет данных по стране</p>
+  }
   const {
     name,
     flags,
@@ -33,7 +44,7 @@ export const CountryInfo: FC = () => {
     if (borders.length) {
       fetchNeighbors(borders)
     }
-  }, [borders.length])
+  }, [borders])
 
   return (
     <section className={styles['countryInfo']}>

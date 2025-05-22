@@ -7,7 +7,7 @@ import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
 
 type CountryState = {
-  country: Country
+  country: Country | null
   isLoading: boolean
   fetchCountry: (countryName: string) => Promise<void>
 }
@@ -15,7 +15,7 @@ type CountryState = {
 export const useCountry = create<CountryState>()(
   devtools(
     immer((set) => ({
-      country: {} as Country,
+      country: null,
       isLoading: false,
 
       fetchCountry: async (countryName: string) => {

@@ -23,6 +23,7 @@ const alias = {
   '@api': resolve(__dirname, 'src/api'),
   '@stores': resolve(__dirname, 'src/stores'),
   '@utils': resolve(__dirname, 'src/utils'),
+  '@components': resolve(__dirname, 'src/components'),
 }
 
 const extensions = ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']
