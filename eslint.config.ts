@@ -87,7 +87,15 @@ export default tseslint.config(
           groups: [
             ['^\\u0000'], // Сайд-эффекты (например, CSS reset)
             ['^react', '^react-dom', '^@?\\w'], // Внешние библиотеки
-            ['^@layouts', '^@pages', '^@components', '^@utils'], // Абсолютные алиасы
+            [
+              '^@shared-api',
+              '^@shared-layouts',
+              '^@shared-pages',
+              '^@shared-components',
+              '^@shared-utils',
+              '^@shared-stores',
+              '^@shared-types',
+            ],
             ['^[^.]'], // Прочие абсолютные импорты
             ['^\\.'], // Относительные импорты
             ['^.+\\.(css|scss|sass|less)$'], // CSS и прочее
@@ -156,7 +164,15 @@ export default tseslint.config(
           groups: [
             ['^\\u0000'], // Сайд-эффекты (например, CSS reset)
             ['^react', '^react-dom', '^@?\\w'], // Внешние библиотеки
-            ['^@layouts', '^@pages', '^@components', '^@utils'], // Абсолютные алиасы
+            [
+              '^@api',
+              '^@layouts',
+              '^@pages',
+              '^@components',
+              '^@utils',
+              '^@stores',
+              '^@shared-types',
+            ],
             ['^[^.]'], // Прочие абсолютные импорты
             ['^\\.'], // Относительные импорты
             ['^.+\\.(css|scss|sass|less)$'], // CSS и прочее

@@ -1,5 +1,6 @@
 import { FC } from 'react'
-import { CountriesListProps } from 'types/countries'
+
+import { CountriesListProps } from '@shared-types/countries'
 
 import { CountriesItem } from './CountriesItem'
 

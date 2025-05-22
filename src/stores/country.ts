@@ -1,11 +1,10 @@
+import { BASE_URL } from '@shared-api/config'
+import { createCountry } from '@shared-utils/createCountry'
 import { toast } from 'react-toastify'
-import { BASE_URL } from '@api/config'
 import { ApiCountry, Country } from 'types/countries'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
-
-import { createCountry } from '@utils/createCountry'
 
 type CountryState = {
   country: Country | null
@@ -29,9 +28,7 @@ export const useCountry = create<CountryState>()(
         )
 
         try {
-          const res = await fetch(
-            BASE_URL + 'name/' + countryName
-          )
+          const res = await fetch(BASE_URL + 'name/' + countryName)
           const data = (await res.json()) as ApiCountry[]
 
           set(

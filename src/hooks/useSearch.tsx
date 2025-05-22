@@ -1,5 +1,4 @@
-import { useFilters } from '@stores/filters'
-
+import { useFilters } from '@shared-stores/filters'
 import { OnSearchHandler } from '../types/hooks'
 
 export const useSearch = (): [string, OnSearchHandler] => {

@@ -1,5 +1,5 @@
+import { BASE_URL } from '@shared-api/config'
 import { toast } from 'react-toastify'
-import { BASE_URL } from '@api/config'
 import { Country } from 'types/countries'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
@@ -22,7 +22,9 @@ export const useNeighbors = create<NeighborsState>()(
 
           set(
             (state) => {
-              state.neighbors = data.map((country: Country) => country.name?.common).toSorted()
+              state.neighbors = data
+                .map((country: Country) => country.name?.common)
+                .toSorted()
             },
             false,
             'fetchNeighbors/success'

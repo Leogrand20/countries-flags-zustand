@@ -1,6 +1,5 @@
+import { useFilters } from '@shared-stores/filters'
 import { FC, useCallback, useEffect, useState } from 'react'
-import { useFilters } from '@stores/filters'
-
 import { CountriesList } from '../components/countries/CountriesList'
 import { Preloader } from '../components/preloader/Preloader'
 import { Search } from '../components/search/Search'

@@ -20,12 +20,13 @@ const alias = {
   '@icons': resolve(__dirname, 'src/assets/icons'),
   '@img': resolve(__dirname, 'src/assets/img'),
   '@fonts': resolve(__dirname, 'src/assets/fonts'),
-  '@api': resolve(__dirname, 'src/api'),
-  '@components': resolve(__dirname, 'src/components'),
-  '@layouts': resolve(__dirname, 'src/layouts'),
-  '@pages': resolve(__dirname, 'src/pages'),
-  '@stores': resolve(__dirname, 'src/stores'),
-  '@utils': resolve(__dirname, 'src/utils'),
+  '@shared-api': resolve(__dirname, 'src/api'),
+  '@shared-layouts': resolve(__dirname, 'src/layouts'),
+  '@shared-pages': resolve(__dirname, 'src/pages'),
+  '@shared-components': resolve(__dirname, 'src/components'),
+  '@shared-stores': resolve(__dirname, 'src/stores'),
+  '@shared-utils': resolve(__dirname, 'src/utils'),
+  '@shared-types': resolve(__dirname, 'src/types'),
 }
 
 const extensions = ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']

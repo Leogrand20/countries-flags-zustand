@@ -18,23 +18,26 @@
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
-      "@api/*": [
+      "@shared-api/*": [
         "api/*"
       ],
-      "@components/*": [
-        "components/*"
-      ],
-      "@layouts/*": [
+      "@shared-layouts/*": [
         "layouts/*"
       ],
-      "@pages/*": [
+      "@shared-pages/*": [
         "pages/*"
       ],
-      "@stores/*": [
+      "@shared-components/*": [
+        "components/*"
+      ],
+      "@shared-stores/*": [
         "stores/*"
       ],
-      "@utils/*": [
+      "@shared-utils/*": [
         "utils/*"
+      ],
+      "@shared-types/*": [
+        "types/*"
       ]
     },
     /* Bundler mode */

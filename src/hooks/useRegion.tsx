@@ -1,5 +1,4 @@
-import { useFilters } from '@stores/filters'
-
+import { useFilters } from '@shared-stores/filters'
 import { OnSelectHandler } from '../types/hooks'
 import { Region } from '../types/regions'
 
