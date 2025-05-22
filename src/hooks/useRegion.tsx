@@ -1,18 +1,16 @@
-import { selectRegionFilter } from '../redux/selectors/filter-selectors'
-import { setRegionFilter } from '../redux/slices/filterSlice'
-import { useAppDispatch, useAppSelector } from '../redux/store'
+import { useFilters } from '@stores/filters'
 import { OnSelectHandler } from '../types/hooks'
 import { Region } from '../types/regions'
 
 export const useRegion = (): [Region | '', OnSelectHandler] => {
-  const dispatch = useAppDispatch()
-  const region = useAppSelector(selectRegionFilter)
+  const region = useFilters((state) => state.region)
+  const setRegionFilter = useFilters((state) => state.setRegionFilter)
 
   const setRegion: OnSelectHandler = (reg) => {
     if (reg) {
-      dispatch(setRegionFilter(reg.value))
+      setRegionFilter(reg.value)
     } else {
-      dispatch(setRegionFilter(''))
+      setRegionFilter('')
     }
   }
 

@@ -1,14 +1,12 @@
-import { FC,useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { IoMoon } from 'react-icons/io5'
 import { Link } from 'react-router'
 
-import { resetFilters } from '../redux/slices/filterSlice'
-import { useAppDispatch } from '../redux/store'
-
+import { useFilters } from '@stores/filters'
 import styles from './Header.module.css'
 
 export const Header: FC = () => {
-  const dispatch = useAppDispatch()
+  const resetFilters = useFilters((state) => state.resetFilters)
   const originalTheme: string = localStorage.getItem('theme') || 'light'
   const [theme, setTheme] = useState<string>(originalTheme)
 
@@ -25,11 +23,7 @@ export const Header: FC = () => {
     <header className="header">
       <div className="container">
         <div className={styles['wrapper']}>
-          <Link
-            to="/"
-            className={styles['titleLink']}
-            onClick={() => dispatch(resetFilters())}
-          >
+          <Link to="/" className={styles['titleLink']} onClick={resetFilters}>
             Where is the world?
           </Link>
 

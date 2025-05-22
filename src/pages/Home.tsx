@@ -1,14 +1,8 @@
+import { useFilters } from '@stores/filters'
 import { FC, useCallback, useEffect, useState } from 'react'
-
 import { CountriesList } from '../components/countries/CountriesList'
 import { Preloader } from '../components/preloader/Preloader'
 import { Search } from '../components/search/Search'
-import {
-  selectRegionFilter,
-  selectSearchFilter,
-  selectSortModeFilter,
-} from '../redux/selectors/filter-selectors'
-import { useAppSelector } from '../redux/store'
 import { useCountries } from '../stores/countries'
 import { Region } from '../types/regions'
 
@@ -17,9 +11,9 @@ export const Home: FC = () => {
   const isLoading = useCountries((state) => state.isLoading)
   const fetchCountries = useCountries((state) => state.fetchCountries)
   const [filteredCountries, setFilteredCountries] = useState(countries)
-  const search = useAppSelector(selectSearchFilter)
-  const region = useAppSelector(selectRegionFilter)
-  const sortMode = useAppSelector(selectSortModeFilter)
+  const search = useFilters((state) => state.search)
+  const region = useFilters((state) => state.region)
+  const sortMode = useFilters((state) => state.sortMode)
 
   useEffect(() => {
     if (!countries.length) {

@@ -1,19 +1,16 @@
+import { useFilters } from '@stores/filters'
 import { FC, useEffect } from 'react'
 import { IoSearch } from 'react-icons/io5'
-
 import { useSearch } from '../../hooks/useSearch'
 import { useSortMode } from '../../hooks/useSortMode'
-import { selectRegionFilter } from '../../redux/selectors/filter-selectors'
-import { useAppSelector } from '../../redux/store'
 import { SearchProps } from '../../types/search'
 import { CustomSelect } from './CustomSelect'
-
 import styles from './Search.module.css'
 
 export const Search: FC<SearchProps> = ({ onSearch }) => {
   const [search, setSearch] = useSearch()
   const [sortMode, setSortMode] = useSortMode()
-  const region = useAppSelector(selectRegionFilter)
+  const region = useFilters((state) => state.region)
 
   useEffect(() => {
     onSearch(search, region, sortMode)
