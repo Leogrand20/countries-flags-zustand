@@ -1,10 +1,11 @@
-import { BASE_URL } from '@api/config'
-import { createCountry } from '@utils/createCountry'
 import { toast } from 'react-toastify'
+import { BASE_URL } from '@api/config'
 import { ApiCountry, Country } from 'types/countries'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
+
+import { createCountry } from '@utils/createCountry'
 
 type CountryState = {
   country: Country | null

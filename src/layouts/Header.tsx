@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react'
 import { IoMoon } from 'react-icons/io5'
 import { Link } from 'react-router'
-
 import { useFilters } from '@stores/filters'
+
 import styles from './Header.module.css'
 
 export const Header: FC = () => {

@@ -53,7 +53,10 @@ export default tseslint.config(
       ...tseslint.configs.recommended[1].rules,
 
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' },
+      ],
 
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
@@ -63,7 +66,10 @@ export default tseslint.config(
       'react/prop-types': 'off',
       'react/display-name': 'off',
 
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
 
       'jsx-a11y/anchor-is-valid': 'warn',
       'jsx-a11y/alt-text': 'warn',
@@ -79,16 +85,12 @@ export default tseslint.config(
         'warn',
         {
           groups: [
-            // Сайд-эффекты (включая CSS)
-            ['^\\u0000'],
-            // Внешние библиотеки
-            ['^@?\\w'],
-            // Абсолютные пути
-            ['^[^.]'],
-            // Относительные пути
-            ['^\\.'],
-            // CSS в самом низу
-            ['\\.css$'],
+            ['^\\u0000'], // Сайд-эффекты (например, CSS reset)
+            ['^react', '^react-dom', '^@?\\w'], // Внешние библиотеки
+            ['^@layouts', '^@pages', '^@components', '^@utils'], // Абсолютные алиасы
+            ['^[^.]'], // Прочие абсолютные импорты
+            ['^\\.'], // Относительные импорты
+            ['^.+\\.(css|scss|sass|less)$'], // CSS и прочее
           ],
         },
       ],
@@ -133,7 +135,10 @@ export default tseslint.config(
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
 
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
 
       'jsx-a11y/anchor-is-valid': 'warn',
       'jsx-a11y/alt-text': 'warn',
@@ -148,7 +153,14 @@ export default tseslint.config(
       'simple-import-sort/imports': [
         'warn',
         {
-          groups: [['^\\u0000'], ['^@?\\w'], ['^[^.]'], ['^\\.'], ['\\.css$']],
+          groups: [
+            ['^\\u0000'], // Сайд-эффекты (например, CSS reset)
+            ['^react', '^react-dom', '^@?\\w'], // Внешние библиотеки
+            ['^@layouts', '^@pages', '^@components', '^@utils'], // Абсолютные алиасы
+            ['^[^.]'], // Прочие абсолютные импорты
+            ['^\\.'], // Относительные импорты
+            ['^.+\\.(css|scss|sass|less)$'], // CSS и прочее
+          ],
         },
       ],
       'simple-import-sort/exports': 'warn',
@@ -156,5 +168,5 @@ export default tseslint.config(
   },
 
   // Prettier
-  prettier,
+  prettier
 )

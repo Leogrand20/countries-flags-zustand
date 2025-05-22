@@ -1,4 +1,5 @@
 import { useFilters } from '@stores/filters'
+
 import { OnSelectHandler } from '../types/hooks'
 import { Region } from '../types/regions'
 

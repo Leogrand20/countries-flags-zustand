@@ -1,7 +1,9 @@
 import { FC } from 'react'
 import { CountriesListProps } from 'types/countries'
-import styles from './Countries.module.css'
+
 import { CountriesItem } from './CountriesItem'
+
+import styles from './Countries.module.css'
 
 export const CountriesList: FC<CountriesListProps> = ({ countries }) => {
   return (

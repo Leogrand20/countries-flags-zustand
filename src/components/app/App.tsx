@@ -1,9 +1,11 @@
 import { Route, Routes } from 'react-router'
-import { Header } from '../../layouts/Header'
-import { Main } from '../../layouts/Main'
-import { Details } from '../../pages/Details'
-import { Home } from '../../pages/Home'
-import { NotFound } from '../../pages/NotFound'
+
+import { Header } from '@layouts/Header'
+import { Main } from '@layouts/Main'
+import { Details } from '@pages/Details'
+import { Home } from '@pages/Home'
+import { NotFound } from '@pages/NotFound'
+
 import './App.css'
 
 export const App = () => {

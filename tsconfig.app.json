@@ -1,20 +1,42 @@
 {
   "compilerOptions": {
-    "types": ["node", "react", "react-dom"],
+    "types": [
+      "node",
+      "react",
+      "react-dom"
+    ],
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["ES2024", "DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "ES2024",
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
-      "@api/*": ["api/*"],
-      "@components/*": ["components/*"],
-      "@stores/*": ["stores/*"],
-      "@utils/*": ["utils/*"]
+      "@api/*": [
+        "api/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@layouts/*": [
+        "layouts/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@stores/*": [
+        "stores/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
     },
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -27,7 +49,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "outDir": "dist",
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -38,6 +59,13 @@
     "noUncheckedIndexedAccess": true, // dynamic fields: obj.key => obj['key'].length
     "noImplicitReturns": false // all returns - not toggled
   },
-  "include": ["src/", "index.tsx", "src/custom.d.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/",
+    "index.tsx",
+    "src/custom.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

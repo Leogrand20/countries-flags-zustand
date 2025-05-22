@@ -1,5 +1,5 @@
-import { BASE_URL } from '@api/config'
 import { toast } from 'react-toastify'
+import { BASE_URL } from '@api/config'
 import { Country } from 'types/countries'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'

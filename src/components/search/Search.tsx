@@ -1,10 +1,12 @@
-import { useFilters } from '@stores/filters'
 import { FC, useEffect } from 'react'
 import { IoSearch } from 'react-icons/io5'
+import { useFilters } from '@stores/filters'
+
 import { useSearch } from '../../hooks/useSearch'
 import { useSortMode } from '../../hooks/useSortMode'
 import { SearchProps } from '../../types/search'
 import { CustomSelect } from './CustomSelect'
+
 import styles from './Search.module.css'
 
 export const Search: FC<SearchProps> = ({ onSearch }) => {

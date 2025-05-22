@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react'
 import { IoArrowBack } from 'react-icons/io5'
 import { NavigateFunction, useNavigate, useParams } from 'react-router'
-
 import { useCountry } from '@stores/country'
+
 import { CountryInfo } from '../components/countries/CountryInfo'
 import { Preloader } from '../components/preloader/Preloader'
 
