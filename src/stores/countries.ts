@@ -1,9 +1,10 @@
+import { BASE_URL } from '@api/config'
+import { createCountries } from '@utils/createCountries'
 import { toast } from 'react-toastify'
 import { Countries } from 'types/countries'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
-import { createCountries } from '../utils/createCountries'
 
 type CountriesState = {
   countries: Countries
@@ -28,7 +29,7 @@ export const useCountries = create<CountriesState>()(
 
         try {
           const res = await fetch(
-            'https://restcountries.com/v3.1/all?fields=name,capital,flags,population,region'
+            BASE_URL + 'all?fields=name,capital,flags,population,region'
           )
           const data = (await res.json()) as Countries
 

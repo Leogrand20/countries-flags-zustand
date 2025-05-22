@@ -20,6 +20,7 @@ const alias = {
   '@icons': resolve(__dirname, 'src/assets/icons'),
   '@img': resolve(__dirname, 'src/assets/img'),
   '@fonts': resolve(__dirname, 'src/assets/fonts'),
+  '@api': resolve(__dirname, 'src/api'),
   '@stores': resolve(__dirname, 'src/stores'),
   '@utils': resolve(__dirname, 'src/utils'),
 }

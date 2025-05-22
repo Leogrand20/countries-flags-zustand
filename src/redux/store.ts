@@ -5,11 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import * as api from '../api/config'
 import errorReducer from './slices/errorSlice'
 import filterReducer from './slices/filterSlice'
-import neighborsReducer from './slices/neighborsSlice'
 
 export const store = configureStore({
   reducer: {
-    neighbors: neighborsReducer,
     error: errorReducer,
     filter: filterReducer,
   },

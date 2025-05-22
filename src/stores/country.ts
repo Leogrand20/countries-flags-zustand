@@ -1,3 +1,4 @@
+import { BASE_URL } from '@api/config'
 import { createCountry } from '@utils/createCountry'
 import { toast } from 'react-toastify'
 import { ApiCountry, Country } from 'types/countries'
@@ -28,7 +29,7 @@ export const useCountry = create<CountryState>()(
 
         try {
           const res = await fetch(
-            `https://restcountries.com/v3.1/name/${countryName}`
+            BASE_URL + 'name/' + countryName
           )
           const data = (await res.json()) as ApiCountry[]
 

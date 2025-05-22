@@ -1,18 +1,14 @@
+import { useCountry } from '@stores/country'
+import { useNeighbors } from '@stores/neighbors'
 import { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router'
-
-import { selectNeighbors } from '../../redux/selectors/neighbors-selectors'
-import { fetchNeighbors } from '../../redux/slices/neighborsSlice'
-import { useAppDispatch, useAppSelector } from '../../redux/store'
-
-import { useCountry } from '@stores/country'
 import styles from './Countries.module.css'
 
 export const CountryInfo: FC = () => {
   const navigate = useNavigate()
-  const dispatch = useAppDispatch()
   const country = useCountry((state) => state.country)
-  const neighbors = useAppSelector(selectNeighbors)
+  const neighbors = useNeighbors((state) => state.neighbors)
+  const fetchNeighbors = useNeighbors((state) => state.fetchNeighbors)
 
   const {
     name,
@@ -35,9 +31,9 @@ export const CountryInfo: FC = () => {
 
   useEffect(() => {
     if (borders.length) {
-      dispatch(fetchNeighbors(borders))
+      fetchNeighbors(borders)
     }
-  }, [borders, dispatch])
+  }, [borders.length])
 
   return (
     <section className={styles['countryInfo']}>
@@ -91,9 +87,9 @@ export const CountryInfo: FC = () => {
             <span>There is no border countries</span>
           ) : (
             <div className={styles['countryInfoMetaTags']}>
-              {neighbors.map((neighbor: string) => (
+              {neighbors.map((neighbor: string, i) => (
                 <span
-                  key={neighbor}
+                  key={i}
                   className={styles['countryInfoMetaTagsSpan']}
                   onClick={() =>
                     navigate(
