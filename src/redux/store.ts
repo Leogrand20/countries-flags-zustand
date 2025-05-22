@@ -3,12 +3,10 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 
 import * as api from '../api/config'
-import errorReducer from './slices/errorSlice'
 import filterReducer from './slices/filterSlice'
 
 export const store = configureStore({
   reducer: {
-    error: errorReducer,
     filter: filterReducer,
   },
 
