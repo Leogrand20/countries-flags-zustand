@@ -1,7 +1,10 @@
-import { CountriesListProps } from '@shared-types/countries'
 import { FC } from 'react'
-import styles from './Countries.module.css'
+
+import { CountriesListProps } from '@shared-types/countries'
+
 import { CountriesItem } from './CountriesItem'
+
+import styles from './Countries.module.css'
 
 export const CountriesList: FC<CountriesListProps> = ({ countries }) => {
   return (

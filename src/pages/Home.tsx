@@ -1,10 +1,11 @@
+import { useCallback, useEffect, useState } from 'react'
+
 import { CountriesList } from '@shared-components/countries/CountriesList'
 import { Preloader } from '@shared-components/preloader/Preloader'
 import { Search } from '@shared-components/search/Search'
 import { useCountries } from '@shared-stores/countries'
 import { useFilters } from '@shared-stores/filters'
 import { Region } from '@shared-types/regions'
-import { useCallback, useEffect, useState } from 'react'
 
 export const Home = () => {
   const countries = useCountries((state) => state.countries)
@@ -19,7 +20,7 @@ export const Home = () => {
     if (!countries.length) {
       fetchCountries()
     }
-  }, [countries.length])
+  }, [countries.length, fetchCountries])
 
   const handleSearch = useCallback(
     (search: string, region: Region | '', sortMode: string | null) => {

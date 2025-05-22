@@ -1,10 +1,11 @@
-import { BASE_URL } from '@shared-api/config'
-import { Countries, CountriesState } from '@shared-types/countries'
-import { createCountries } from '@shared-utils/createCountries'
 import { toast } from 'react-toastify'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
+
+import { BASE_URL } from '@shared-api/config'
+import { Countries, CountriesState } from '@shared-types/countries'
+import { createCountries } from '@shared-utils/createCountries'
 
 export const useCountries = create<CountriesState>()(
   devtools(

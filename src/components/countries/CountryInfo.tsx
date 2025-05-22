@@ -1,8 +1,10 @@
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router'
+
 import { Preloader } from '@shared-components/preloader/Preloader'
 import { useCountry } from '@shared-stores/country'
 import { useNeighbors } from '@shared-stores/neighbors'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router'
+
 import styles from './Countries.module.css'
 
 export const CountryInfo = () => {
@@ -11,6 +13,11 @@ export const CountryInfo = () => {
   const neighbors = useNeighbors((state) => state.neighbors)
   const fetchNeighbors = useNeighbors((state) => state.fetchNeighbors)
   const isLoading = useCountry((state) => state.isLoading)
+
+  useEffect(() => {
+    if (!country?.borders || country.borders.length === 0) return
+    fetchNeighbors(country.borders)
+  }, [country, fetchNeighbors])
 
   // Показываем спиннер во время загрузки
   if (isLoading) {
@@ -31,7 +38,6 @@ export const CountryInfo = () => {
     tld = [],
     currencies = {},
     languages = {},
-    borders = [],
   } = country
 
   let formattedPopulation = ''
@@ -39,12 +45,6 @@ export const CountryInfo = () => {
   if (population) {
     formattedPopulation = new Intl.NumberFormat('ru-Ru').format(population)
   }
-
-  useEffect(() => {
-    if (borders.length) {
-      fetchNeighbors(borders)
-    }
-  }, [borders])
 
   return (
     <section className={styles['countryInfo']}>
@@ -94,7 +94,7 @@ export const CountryInfo = () => {
         <div className={styles['countryInfoMeta']}>
           <strong>Border Countries: </strong>
 
-          {!borders.length ? (
+          {country.borders && !country.borders.length ? (
             <span>There is no border countries</span>
           ) : (
             <div className={styles['countryInfoMetaTags']}>

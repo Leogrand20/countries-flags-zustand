@@ -1,8 +1,10 @@
-import '@css/index.css'
-import { App } from '@shared-components/app/App'
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router'
+import { createRoot } from 'react-dom/client'
+
+import { App } from '@shared-components/app/App'
+
+import '@css/index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

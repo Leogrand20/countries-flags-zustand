@@ -1,10 +1,11 @@
-import { BASE_URL } from '@shared-api/config'
-import { Country } from '@shared-types/countries'
-import { NeighborsState } from '@shared-types/neighbors'
 import { toast } from 'react-toastify'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
+
+import { BASE_URL } from '@shared-api/config'
+import { Country } from '@shared-types/countries'
+import { NeighborsState } from '@shared-types/neighbors'
 
 export const useNeighbors = create<NeighborsState>()(
   devtools(

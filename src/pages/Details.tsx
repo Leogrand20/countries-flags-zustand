@@ -1,9 +1,10 @@
-import { CountryInfo } from '@shared-components/countries/CountryInfo'
-import { Preloader } from '@shared-components/preloader/Preloader'
-import { useCountry } from '@shared-stores/country'
 import { useEffect } from 'react'
 import { IoArrowBack } from 'react-icons/io5'
 import { NavigateFunction, useNavigate, useParams } from 'react-router'
+
+import { CountryInfo } from '@shared-components/countries/CountryInfo'
+import { Preloader } from '@shared-components/preloader/Preloader'
+import { useCountry } from '@shared-stores/country'
 
 export const Details = () => {
   const { countryName } = useParams()
@@ -15,7 +16,7 @@ export const Details = () => {
     if (countryName) {
       fetchCountry(countryName)
     }
-  }, [countryName])
+  }, [countryName, fetchCountry])
 
   return (
     <>

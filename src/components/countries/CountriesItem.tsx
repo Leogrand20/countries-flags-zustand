@@ -1,6 +1,8 @@
-import { CountriesItemProps } from '@shared-types/countries'
 import { FC } from 'react'
 import { useNavigate } from 'react-router'
+
+import { CountriesItemProps } from '@shared-types/countries'
+
 import styles from './Countries.module.css'
 
 export const CountriesItem: FC<CountriesItemProps> = ({
