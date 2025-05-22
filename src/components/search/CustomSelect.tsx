@@ -1,8 +1,6 @@
+import { useRegion } from '@shared-hooks/useRegion'
+import { RegionOptions, RegionOptionsMap } from '@shared-types/regions'
 import Select, { Props } from 'react-select'
-
-import { useRegion } from '../../hooks/useRegion'
-import { RegionOptions, RegionOptionsMap } from '../../types/regions'
-
 import styles from './Search.module.css'
 
 const optionsMap: RegionOptionsMap = {

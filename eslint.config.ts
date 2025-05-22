@@ -89,13 +89,13 @@ export default tseslint.config(
             ['^react', '^react-dom', '^@?\\w'], // Внешние библиотеки
             [
               '^@shared-api',
+              '^@shared-components',
+              '^@shared-hooks',
               '^@shared-layouts',
               '^@shared-pages',
-              '^@shared-components',
-              '^@shared-utils',
               '^@shared-stores',
-              '^@shared-hooks',
               '^@shared-types',
+              '^@shared-utils',
             ],
             ['^[^.]'], // Прочие абсолютные импорты
             ['^\\.'], // Относительные импорты
@@ -167,13 +167,13 @@ export default tseslint.config(
             ['^react', '^react-dom', '^@?\\w'], // Внешние библиотеки
             [
               '^@shared-api',
+              '^@shared-components',
+              '^@shared-hooks',
               '^@shared-layouts',
               '^@shared-pages',
-              '^@shared-components',
-              '^@shared-utils',
               '^@shared-stores',
-              '^@shared-hooks',
               '^@shared-types',
+              '^@shared-utils',
             ],
             ['^[^.]'], // Прочие абсолютные импорты
             ['^\\.'], // Относительные импорты

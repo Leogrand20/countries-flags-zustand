@@ -26,8 +26,8 @@ const alias = {
   '@shared-components': resolve(__dirname, 'src/components'),
   '@shared-stores': resolve(__dirname, 'src/stores'),
   '@shared-utils': resolve(__dirname, 'src/utils'),
-  '@shared-types': resolve(__dirname, 'src/types'),
   '@shared-hooks': resolve(__dirname, 'src/hooks'),
+  '@shared-types': resolve(__dirname, 'src/types'),
 }
 
 const extensions = ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']
