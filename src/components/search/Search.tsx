@@ -1,9 +1,9 @@
+import { useSearch } from '@shared-hooks/useSearch'
+import { useSortMode } from '@shared-hooks/useSortMode'
 import { useFilters } from '@shared-stores/filters'
+import { SearchProps } from '@shared-types/search'
 import { FC, useEffect } from 'react'
 import { IoSearch } from 'react-icons/io5'
-import { useSearch } from '../../hooks/useSearch'
-import { useSortMode } from '../../hooks/useSortMode'
-import { SearchProps } from '../../types/search'
 import { CustomSelect } from './CustomSelect'
 import styles from './Search.module.css'
 

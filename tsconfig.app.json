@@ -36,6 +36,9 @@
       "@shared-utils/*": [
         "utils/*"
       ],
+      "@shared-hooks/*": [
+        "hooks/*"
+      ],
       "@shared-types/*": [
         "types/*"
       ]
