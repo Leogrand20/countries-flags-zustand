@@ -18,9 +18,9 @@ const alias = {
   '@': resolve(__dirname, 'src'),
   '@public': resolve(__dirname, 'public'),
   '@css': resolve(__dirname, 'src/app/styles'),
-  '@icons': resolve(__dirname, 'src/assets/icons'),
+  '@icons': resolve(__dirname, 'src/shared/assets/icons'),
   '@img': resolve(__dirname, 'src/shared/assets/img'),
-  '@fonts': resolve(__dirname, 'src/assets/fonts'),
+  '@fonts': resolve(__dirname, 'src/shared/assets/fonts'),
 }
 
 const extensions = ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']
