@@ -6,6 +6,7 @@ import htmlTemplate from 'vite-plugin-html-template-mpa'
 import Inspect from 'vite-plugin-inspect'
 import legacy from 'vite-plugin-legacy-swc'
 import svgr from 'vite-plugin-svgr'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 const chunkSize = 1024
 
@@ -16,18 +17,10 @@ const copyTarget = {
 const alias = {
   '@': resolve(__dirname, 'src'),
   '@public': resolve(__dirname, 'public'),
-  '@css': resolve(__dirname, 'src/styles'),
+  '@css': resolve(__dirname, 'src/app/styles'),
   '@icons': resolve(__dirname, 'src/assets/icons'),
-  '@img': resolve(__dirname, 'src/assets/img'),
+  '@img': resolve(__dirname, 'src/shared/assets/img'),
   '@fonts': resolve(__dirname, 'src/assets/fonts'),
-  '@shared-api': resolve(__dirname, 'src/api'),
-  '@shared-layouts': resolve(__dirname, 'src/layouts'),
-  '@shared-pages': resolve(__dirname, 'src/pages'),
-  '@shared-components': resolve(__dirname, 'src/components'),
-  '@shared-stores': resolve(__dirname, 'src/stores'),
-  '@shared-utils': resolve(__dirname, 'src/utils'),
-  '@shared-hooks': resolve(__dirname, 'src/hooks'),
-  '@shared-types': resolve(__dirname, 'src/types'),
 }
 
 const extensions = ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']
@@ -63,6 +56,7 @@ export default defineConfig(({ command }) => {
       },
 
       plugins: [
+        tsconfigPaths(),
         copy(copyTarget),
 
         legacy({
@@ -131,6 +125,7 @@ export default defineConfig(({ command }) => {
 
       plugins: [
         Inspect(),
+        tsconfigPaths(),
         copy(copyTarget),
         react(),
         svgr({

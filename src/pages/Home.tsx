@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 
-import { CountriesList } from '@shared-components/countries/CountriesList'
-import { Preloader } from '@shared-components/preloader/Preloader'
-import { Search } from '@shared-components/search/Search'
-import { useCountries } from '@shared-stores/countries'
-import { useFilters } from '@shared-stores/filters'
-import { Region } from '@shared-types/regions'
+import { Region } from '@shared/types/regions'
+import { Preloader } from '@shared/ui/Preloader/Preloader'
+import { useCountries } from '@entities/country/model/countries'
+import { useFilters } from '@entities/country/model/filters'
+import { CountriesList } from '@entities/country/ui/CountriesList'
+import { Search } from '@features/search-country/ui/Search'
 
 export const Home = () => {
   const countries = useCountries((state) => state.countries)

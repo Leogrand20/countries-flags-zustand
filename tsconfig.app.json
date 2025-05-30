@@ -18,29 +18,23 @@
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
-      "@shared-api/*": [
-        "api/*"
+      "@app/*": [
+        "app/*"
       ],
-      "@shared-layouts/*": [
-        "layouts/*"
+      "@shared/*": [
+        "shared/*"
       ],
-      "@shared-pages/*": [
+      "@entities/*": [
+        "entities/*"
+      ],
+      "@features/*": [
+        "features/*"
+      ],
+      "@widgets/*": [
+        "widgets/*"
+      ],
+      "@pages/*": [
         "pages/*"
-      ],
-      "@shared-components/*": [
-        "components/*"
-      ],
-      "@shared-stores/*": [
-        "stores/*"
-      ],
-      "@shared-utils/*": [
-        "utils/*"
-      ],
-      "@shared-hooks/*": [
-        "hooks/*"
-      ],
-      "@shared-types/*": [
-        "types/*"
       ]
     },
     /* Bundler mode */
@@ -68,7 +62,7 @@
   "include": [
     "src/",
     "index.tsx",
-    "src/custom.d.ts"
+    "src/svg.d.ts"
   ],
   "exclude": [
     "node_modules",

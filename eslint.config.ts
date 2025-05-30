@@ -88,14 +88,12 @@ export default tseslint.config(
             ['^\\u0000'], // Сайд-эффекты (например, CSS reset)
             ['^react', '^react-dom', '^@?\\w'], // Внешние библиотеки
             [
-              '^@shared-api',
-              '^@shared-components',
-              '^@shared-hooks',
-              '^@shared-layouts',
-              '^@shared-pages',
-              '^@shared-stores',
-              '^@shared-types',
-              '^@shared-utils',
+              '^@app', // Инициализация приложения, маршруты, провайдеры
+              '^@shared', // Универсальные элементы (UI, lib, types, config)
+              '^@entities', // Бизнес-сущности (user, product и т.д.)
+              '^@features', // Пользовательские функции (auth, cart и т.д.)
+              '^@widgets', // Готовые блоки интерфейса (Header, Sidebar)
+              '^@pages', // Конечные страницы, сборка из виджетов
             ],
             ['^[^.]'], // Прочие абсолютные импорты
             ['^\\.'], // Относительные импорты
@@ -166,14 +164,12 @@ export default tseslint.config(
             ['^\\u0000'], // Сайд-эффекты (например, CSS reset)
             ['^react', '^react-dom', '^@?\\w'], // Внешние библиотеки
             [
-              '^@shared-api',
-              '^@shared-components',
-              '^@shared-hooks',
-              '^@shared-layouts',
-              '^@shared-pages',
-              '^@shared-stores',
-              '^@shared-types',
-              '^@shared-utils',
+              '^@app', // Инициализация приложения, маршруты, провайдеры
+              '^@shared', // Универсальные элементы (UI, lib, types, config)
+              '^@entities', // Бизнес-сущности (user, product и т.д.)
+              '^@features', // Пользовательские функции (auth, cart и т.д.)
+              '^@widgets', // Готовые блоки интерфейса (Header, Sidebar)
+              '^@pages', // Конечные страницы, сборка из виджетов
             ],
             ['^[^.]'], // Прочие абсолютные импорты
             ['^\\.'], // Относительные импорты

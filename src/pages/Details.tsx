@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import { IoArrowBack } from 'react-icons/io5'
 import { NavigateFunction, useNavigate, useParams } from 'react-router'
 
-import { CountryInfo } from '@shared-components/countries/CountryInfo'
-import { Preloader } from '@shared-components/preloader/Preloader'
-import { useCountry } from '@shared-stores/country'
+import { Preloader } from '@shared/ui/Preloader/Preloader'
+import { useCountry } from '@entities/country/model/country'
+import { CountryInfo } from '@entities/country/ui/CountryInfo'
 
 export const Details = () => {
   const { countryName } = useParams()

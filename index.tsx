@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { BrowserRouter } from 'react-router'
 import { createRoot } from 'react-dom/client'
 
-import { App } from '@shared-components/app/App'
+import { App } from '@app/App'
 
 import '@css/index.css'
 
@@ -11,5 +11,5 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )
