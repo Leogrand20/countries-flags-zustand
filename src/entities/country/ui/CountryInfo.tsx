@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router'
+import { NavigateFunction, useNavigate } from 'react-router'
 
 import { Preloader } from '@shared/ui/Preloader/Preloader'
 
@@ -9,7 +9,7 @@ import { useNeighbors } from '../model/neighbors'
 import styles from './Countries.module.css'
 
 export const CountryInfo = () => {
-  const navigate = useNavigate()
+  const navigate: NavigateFunction = useNavigate()
   const country = useCountry((state) => state.country)
   const neighbors = useNeighbors((state) => state.neighbors)
   const fetchNeighbors = useNeighbors((state) => state.fetchNeighbors)
@@ -17,6 +17,7 @@ export const CountryInfo = () => {
 
   useEffect(() => {
     if (!country?.borders || country.borders.length === 0) return
+    
     fetchNeighbors(country.borders)
   }, [country, fetchNeighbors])
 
