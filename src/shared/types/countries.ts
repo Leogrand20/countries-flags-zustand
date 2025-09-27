@@ -1,4 +1,4 @@
-import { Region } from './regions'
+import { type Region } from '@shared/types/regions.ts'
 
 interface Flags {
   png: string
@@ -37,17 +37,6 @@ export type Country = {
 export type Countries = Country[]
 
 export type ApiCountry = Omit<Country, 'id'>
-export type ApiCountries = ApiCountry[]
-
-export type CountriesSlice = {
-  countries: Countries
-  isLoading: boolean
-}
-
-export type CountrySlice = {
-  country: Country
-  isLoading: boolean
-}
 
 export type CountriesItemProps = Pick<
   Country,

@@ -1,6 +1,6 @@
-import { FC, useEffect, useState } from 'react'
+import { type FC, useEffect, useState } from 'react'
 import { IoMoon } from 'react-icons/io5'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import { useFilters } from '@entities/country/model/filters'
 
@@ -23,15 +23,15 @@ export const Header: FC = () => {
   return (
     <header className="header">
       <div className="container">
-        <div className={styles['wrapper']}>
-          <Link to="/" className={styles['titleLink']} onClick={resetFilters}>
+        <div className={styles.wrapper}>
+          <Link to="/" className={styles.titleLink} onClick={resetFilters}>
             Where is the world?
           </Link>
 
-          <div className={styles['modeSwitcher']} onClick={toggleTheme}>
-            <IoMoon className={styles['ioMoon']} />
+          <div className={styles.modeSwitcher} onClick={toggleTheme}>
+            <IoMoon className={styles.ioMoon} />
 
-            <span className={styles['spanSwitcher']}>
+            <span className={styles.spanSwitcher}>
               {theme === 'dark' ? 'light' : 'dark'} theme
             </span>
           </div>

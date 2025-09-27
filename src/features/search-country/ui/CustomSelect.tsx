@@ -1,7 +1,7 @@
-import Select, { Props } from 'react-select'
+import Select, { type StylesConfig } from 'react-select'
 
 import { useRegion } from '@shared/hooks/useRegion'
-import { RegionOptions, RegionOptionsMap } from '@shared/types/regions'
+import { type RegionOptions, type RegionOptionsMap } from '@shared/types/regions'
 
 import styles from './Search.module.css'
 
@@ -16,42 +16,40 @@ const optionsMap: RegionOptionsMap = {
 
 const options = Object.values(optionsMap)
 
-const RegionSelect = (props: Props<RegionOptions, false>) => (
-  <Select {...props} />
-)
+const selectStyles: StylesConfig<RegionOptions, false> = {
+  control: (provided) => ({
+    ...provided,
+    height: '50px',
+    border: 'none',
+    borderRadius: 'var(--radii)',
+    padding: '0.25rem',
+    color: 'var(--colors-text)',
+    backgroundColor: 'var(--colors-ui-base)',
+    boxShadow: 'var(--shadow)',
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    cursor: 'pointer',
+    color: 'var(--colors-text)',
+    backgroundColor: state.isSelected
+      ? 'var(--colors-bg)'
+      : 'var(--colors-ui-base)',
+  }),
+}
 
 export const CustomSelect = () => {
-  const [region, setRegion] = useRegion()
+  const [region, setRegion] = useRegion() // region: Region | '', setRegion: OnSelectHandler
 
   return (
-    <RegionSelect
+    <Select<RegionOptions, false>
       placeholder="Filter by Region"
-      className={styles['select']}
+      className={styles.select}
       options={options}
-      value={region ? optionsMap[region] : ''}
-      onChange={setRegion}
+      value={region ? optionsMap[region] : null} // ✅ string -> RegionOptions | null
+      onChange={setRegion} // ✅ OnSelectHandler совпадает с onChange
       isClearable
       isSearchable={false}
-      styles={{
-        control: (provided) => ({
-          ...provided,
-          height: '50px',
-          border: 'none',
-          borderRadius: 'var(--radii)',
-          padding: '0.25rem',
-          color: 'var(--colors-text)',
-          backgroundColor: 'var(--colors-ui-base)',
-          boxShadow: 'var(--shadow)',
-        }),
-        option: (provided, state) => ({
-          ...provided,
-          cursor: 'pointer',
-          color: 'var(--colors-text)',
-          backgroundColor: state.isSelected
-            ? 'var(--colors-bg)'
-            : 'var(--colors-ui-base)',
-        }),
-      }}
+      styles={selectStyles}
     />
   )
 }

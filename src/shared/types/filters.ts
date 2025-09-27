@@ -1,4 +1,4 @@
-import { Region } from './regions'
+import { type Region } from '@shared/types/regions.ts'
 
 export interface FiltersState {
   search: string

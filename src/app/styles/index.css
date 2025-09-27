@@ -1,4 +1,4 @@
-@import "@css/normalize";
+@import "@css/normalize.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 
@@ -39,6 +39,7 @@ body {
   margin: 0;
   background-color: var(--colors-bg);
   color: var(--colors-text);
+  /*noinspection CssNoGenericFontName*/
   font-family: var(--family);
   font-weight: var(--fw-light);
 }

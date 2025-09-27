@@ -1,19 +1,36 @@
 import css from '@eslint/css'
 import js from '@eslint/js'
+import markdown from '@eslint/markdown'
 import prettier from 'eslint-config-prettier'
 import * as importPlugin from 'eslint-plugin-import'
+import jsonc from 'eslint-plugin-jsonc'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import pluginImportSort from 'eslint-plugin-simple-import-sort'
 import globals from 'globals'
+import jsoncParser from 'jsonc-eslint-parser'
 import tseslint from 'typescript-eslint'
 
-export default tseslint.config(
-  { ignores: ['dist', '**/*.d.ts'] },
+export default [
+  {
+    ignores: [
+      'dist',
+      'build',
+      'node_modules',
+      '**/*.d.ts',
+      '*.log',
+      '.env',
+      '.env.*',
+      '__snapshots__/',
+      'public',
+      '.husky',
+      '.DS_Store',
+    ],
+  },
 
-  // Конфигурация для TypeScript файлов
+  // === TypeScript-файлы ===
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -22,6 +39,7 @@ export default tseslint.config(
       globals: globals.browser,
       parser: tseslint.parser,
       parserOptions: {
+        tsconfigRootDir: __dirname,
         project: './tsconfig.eslint.json',
         sourceType: 'module',
         ecmaFeatures: { jsx: true },
@@ -48,9 +66,9 @@ export default tseslint.config(
       },
     },
     rules: {
-      ...js.configs.recommended.rules,
-      ...tseslint.configs.recommended[0].rules,
-      ...tseslint.configs.recommended[1].rules,
+      ...(js.configs.recommended?.rules || {}),
+      ...(tseslint.configs.recommended?.[0]?.rules || {}),
+      ...(tseslint.configs.recommended?.[1]?.rules || {}),
 
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
@@ -58,9 +76,18 @@ export default tseslint.config(
         { argsIgnorePattern: '^_' },
       ],
 
-      ...react.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
-      // ✅ Переопределяем ненужные правила для TS
+      // ✅ новое правило — требуем import type для типов
+      '@typescript-eslint/consistent-type-imports': [
+        'warn',
+        {
+          prefer: 'type-imports',
+          fixStyle: 'inline-type-imports',
+        },
+      ],
+
+      ...(react.configs.recommended?.rules || {}),
+      ...(reactHooks.configs.recommended?.rules || {}),
+
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
       'react/prop-types': 'off',
@@ -79,25 +106,29 @@ export default tseslint.config(
       'import/no-duplicates': 'error',
       'import/newline-after-import': 'warn',
 
-      // ✅ Новый порядок через simple-import-sort
       'import/order': 'off',
       'simple-import-sort/imports': [
         'warn',
         {
           groups: [
-            ['^\\u0000'], // Сайд-эффекты (например, CSS reset)
-            ['^react', '^react-dom', '^@?\\w'], // Внешние библиотеки
+            ['^\\u0000'],
+            ['^react', '^react-dom', '^@?\\w'],
             [
-              '^@app', // Инициализация приложения, маршруты, провайдеры
-              '^@shared', // Универсальные элементы (UI, lib, types, config)
-              '^@entities', // Бизнес-сущности (user, product и т.д.)
-              '^@features', // Пользовательские функции (auth, cart и т.д.)
-              '^@widgets', // Готовые блоки интерфейса (Header, Sidebar)
-              '^@pages', // Конечные страницы, сборка из виджетов
+              '^@app',
+              '^@shared',
+              '^@entities',
+              '^@features',
+              '^@components',
+              '^@widgets',
+              '^@layouts',
+              '^@pages',
+              '^@hooks',
+              '^@utils',
+              '^@store',
             ],
-            ['^[^.]'], // Прочие абсолютные импорты
-            ['^\\.'], // Относительные импорты
-            ['^.+\\.(css|scss|sass|less)$'], // CSS и прочее
+            ['^[^.]'],
+            ['^\\.'],
+            ['^.+\\.(css|scss|sass|less)$'],
           ],
         },
       ],
@@ -105,7 +136,7 @@ export default tseslint.config(
     },
   },
 
-  // Конфигурация для JS файлов
+  // === JavaScript-файлы ===
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
@@ -136,9 +167,10 @@ export default tseslint.config(
       },
     },
     rules: {
-      ...js.configs.recommended.rules,
-      ...react.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
+      ...(js.configs.recommended?.rules || {}),
+      ...(react.configs.recommended?.rules || {}),
+      ...(reactHooks.configs.recommended?.rules || {}),
+
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
 
@@ -155,25 +187,29 @@ export default tseslint.config(
       'import/no-duplicates': 'error',
       'import/newline-after-import': 'warn',
 
-      // Порядок импортов — simple-import-sort
       'import/order': 'off',
       'simple-import-sort/imports': [
         'warn',
         {
           groups: [
-            ['^\\u0000'], // Сайд-эффекты (например, CSS reset)
-            ['^react', '^react-dom', '^@?\\w'], // Внешние библиотеки
+            ['^\\u0000'],
+            ['^react', '^react-dom', '^@?\\w'],
             [
-              '^@app', // Инициализация приложения, маршруты, провайдеры
-              '^@shared', // Универсальные элементы (UI, lib, types, config)
-              '^@entities', // Бизнес-сущности (user, product и т.д.)
-              '^@features', // Пользовательские функции (auth, cart и т.д.)
-              '^@widgets', // Готовые блоки интерфейса (Header, Sidebar)
-              '^@pages', // Конечные страницы, сборка из виджетов
+              '^@app',
+              '^@shared',
+              '^@entities',
+              '^@features',
+              '^@components',
+              '^@widgets',
+              '^@layouts',
+              '^@pages',
+              '^@hooks',
+              '^@utils',
+              '^@store',
             ],
-            ['^[^.]'], // Прочие абсолютные импорты
-            ['^\\.'], // Относительные импорты
-            ['^.+\\.(css|scss|sass|less)$'], // CSS и прочее
+            ['^[^.]'],
+            ['^\\.'],
+            ['^.+\\.(css|scss|sass|less)$'],
           ],
         },
       ],
@@ -181,6 +217,49 @@ export default tseslint.config(
     },
   },
 
-  // Prettier
-  prettier
-)
+  // === JSON / JSONC ===
+  {
+    files: ['**/*.json', '**/*.jsonc', '**/*.json5'],
+    languageOptions: {
+      parser: jsoncParser,
+    },
+    plugins: { jsonc },
+    rules: {
+      'jsonc/array-bracket-spacing': ['error', 'never'],
+      'jsonc/object-curly-spacing': ['error', 'always'],
+      'jsonc/quote-props': ['error', 'always'],
+      'jsonc/indent': ['error', 2],
+      'jsonc/key-spacing': ['error', { beforeColon: false, afterColon: true }],
+      'jsonc/no-octal-escape': 'error',
+    },
+  },
+
+  // === Markdown ===
+  {
+    files: ['**/*.md'],
+    plugins: { markdown },
+    processor: 'markdown/markdown',
+  },
+  {
+    files: ['**/*.md/*.{js,jsx}'],
+    rules: {
+      'no-undef': 'off',
+      'no-unused-vars': 'off',
+    },
+  },
+  {
+    files: ['**/*.md/*.{ts,tsx}'],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaFeatures: { jsx: true },
+      },
+    },
+    rules: {
+      'no-undef': 'off',
+      'no-unused-vars': 'off',
+    },
+  },
+
+  prettier,
+]

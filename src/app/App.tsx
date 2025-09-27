@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
 
 import { Header } from '@app/layout/Header/Header'
 import { Main } from '@app/layout/Main/Main'

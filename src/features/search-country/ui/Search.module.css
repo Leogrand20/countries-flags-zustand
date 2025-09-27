@@ -31,7 +31,7 @@
   margin-left: 2rem;
   border: none;
   outline: none;
-  color: var(--color-text);
+  color: var(--colors-text);
   background-color: var(--colors-ui-base);
 }
 
@@ -40,6 +40,7 @@
   height: 50px;
   border: none;
   border-radius: var(--radii);
+  /*noinspection CssNoGenericFontName*/
   font-family: var(--family);
   color: var(--colors-text);
   padding: 0.25rem;

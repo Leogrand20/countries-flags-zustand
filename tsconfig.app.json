@@ -7,39 +7,52 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@app/*": ["app/*"],
-      "@shared/*": ["shared/*"],
-      "@entities/*": ["entities/*"],
-      "@features/*": ["features/*"],
-      "@widgets/*": ["widgets/*"],
-      "@pages/*": ["pages/*"]
+      "@app/*": ["src/app/*"],
+      "@shared/*": ["src/shared/*"],
+      "@entities/*": ["src/entities/*"],
+      "@features/*": ["src/features/*"],
+      "@widgets/*": ["src/widgets/*"],
+      "@pages/*": ["src/pages/*"],
+      /* алиасы для Tailwind и статических ассетов */
+      "@css/*": ["src/app/styles/*"],
+      "@fonts/*": ["src/shared/assets/fonts/*"],
+      "@img/*": ["src/shared/assets/img/*"],
+      "@icons/*": ["src/shared/assets/icons/*"]
     },
-    
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "allowSyntheticDefaultImports": true, // import * as api => import api from '../api'
+    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
-    "esModuleInterop": true, // commonJS => import
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "moduleDetection": "force",
-    "resolveJsonModule": true, // import './*.json'
+    "resolveJsonModule": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "outDir": "dist",
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true, // extra
-    "noPropertyAccessFromIndexSignature": true, // dynamic fields: obj.key => obj['key']
-    "noUncheckedIndexedAccess": true, // dynamic fields: obj.key => obj['key'].length
+    "noPropertyAccessFromIndexSignature": false, // dynamic fields: obj.key => obj['key']
+    "noUncheckedIndexedAccess": false, // dynamic fields: obj.key => obj['key'].length
     "noImplicitReturns": false // all returns - not toggled
   },
-  "include": ["src", "index.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/",
+    "index.tsx",
+    "src/shared/types/",
+    "eslint.config.ts",
+    "vite.config.ts",
+    "webpack.alias.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

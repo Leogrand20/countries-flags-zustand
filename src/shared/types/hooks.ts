@@ -1,7 +1,7 @@
-import { ChangeEventHandler } from 'react'
-import { SingleValue } from 'react-select'
+import { type ChangeEventHandler } from 'react'
+import { type SingleValue } from 'react-select'
 
-import { RegionOptions } from './regions'
+import { type RegionOptions } from '@shared/types/regions.ts'
 
 export type OnSearchHandler = ChangeEventHandler<HTMLInputElement>
 

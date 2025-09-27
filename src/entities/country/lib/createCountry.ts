@@ -1,6 +1,6 @@
-import { v4 as uuidv4 } from 'uuid'
+import { v7 as uuidv7 } from 'uuid'
 
-import { ApiCountry, Country } from '@shared/types/countries'
+import { type ApiCountry, type Country } from '@shared/types/countries'
 
 export const createCountry = (countryArray: ApiCountry[]): Country => {
   if (!countryArray.length) {
@@ -9,6 +9,6 @@ export const createCountry = (countryArray: ApiCountry[]): Country => {
 
   return {
     ...countryArray[0],
-    id: uuidv4(),
+    id: uuidv7(),
   }
 }

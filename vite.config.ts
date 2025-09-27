@@ -1,5 +1,5 @@
+import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react-swc'
-import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import copy from 'vite-plugin-cp'
 import { createHtmlPlugin } from 'vite-plugin-html'
@@ -8,19 +8,12 @@ import legacy from 'vite-plugin-legacy-swc'
 import svgr from 'vite-plugin-svgr'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
+import { alias } from './webpack.alias'
+
 const chunkSize = 1024
 
 const copyTarget = {
   targets: [{ src: './src/assets/video', dest: 'dist/assets/video' }],
-}
-
-const alias = {
-  '@': resolve(__dirname, 'src'),
-  '@public': resolve(__dirname, 'public'),
-  '@css': resolve(__dirname, 'src/app/styles'),
-  '@icons': resolve(__dirname, 'src/shared/assets/icons'),
-  '@img': resolve(__dirname, 'src/shared/assets/img'),
-  '@fonts': resolve(__dirname, 'src/shared/assets/fonts'),
 }
 
 const extensions = ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']
@@ -78,6 +71,8 @@ export default defineConfig(({ command }) => {
           },
           include: '**/*.svg',
         }),
+
+        tailwindcss(),
       ],
 
       resolve: {
@@ -137,6 +132,7 @@ export default defineConfig(({ command }) => {
           },
           include: '**/*.svg',
         }),
+        tailwindcss(),
       ],
 
       resolve: {
