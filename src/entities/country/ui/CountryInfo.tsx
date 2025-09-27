@@ -74,7 +74,7 @@ export const CountryInfo = () => {
               <strong>Sub Region:</strong> {subregion}
             </li>
             <li className={styles.countryDataListItem}>
-              <strong>Capital:</strong> {capital}
+              <strong>Capital:</strong> {capital && capital[0]}
             </li>
           </ul>
 
