@@ -1,3 +1,4 @@
+// noinspection JSUnusedGlobalSymbols
 export default {
   multipass: false, // boolean
   datauri: 'base64', // 'base64'|'enc'|'unenc'
