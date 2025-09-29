@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import { Header } from '@app/layout/Header/Header'
 import { Main } from '@app/layout/Main/Main'
+import { Toaster } from '@shared/ui/Toaster/Toaster.tsx'
 import { Details } from '@pages/Details'
 import { Home } from '@pages/Home'
 import { NotFound } from '@pages/NotFound'
@@ -20,6 +21,8 @@ export const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Main>
+
+      <Toaster />
     </>
   )
 }
