@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify'
+import axios from 'axios'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
@@ -24,16 +25,12 @@ export const useCountry = create<CountryState>()(
           )
 
           try {
-            const res = await fetch(BASE_URL + 'name/' + countryName)
-            const data = (
-              await res.json()
-            ) as ApiCountry[]
+            const { data } = await axios<ApiCountry[]>(BASE_URL + 'name/' + countryName)
 
             set(
               state => {
-                state.country = createCountry(data)
-
                 state.isLoading = false
+                state.country = createCountry(data)
               },
               false,
               'fetchCountry/success',
