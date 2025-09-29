@@ -10,7 +10,7 @@
     "types": ["node"]
   },
   "include": [
-    "src",
+    "src/",
     "index.tsx",
     "eslint.config.ts",
     "vite.config.ts",

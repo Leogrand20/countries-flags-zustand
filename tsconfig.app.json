@@ -46,7 +46,6 @@
   "include": [
     "src/",
     "index.tsx",
-    "src/shared/types/",
     "eslint.config.ts",
     "vite.config.ts",
     "webpack.alias.ts"
