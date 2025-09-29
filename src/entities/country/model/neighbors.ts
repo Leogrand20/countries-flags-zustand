@@ -1,4 +1,3 @@
-import { toast } from 'react-toastify'
 import axios from 'axios'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
