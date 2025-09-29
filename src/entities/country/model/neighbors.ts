@@ -15,24 +15,19 @@ export const useNeighbors = create<NeighborsState>()(
         neighbors: [],
 
         fetchNeighbors: async (codes: string[]) => {
-          try {
-            const { data } = await axios<ApiCountry[]>(BASE_URL + 'alpha?codes=' + codes.join(','))
-            console.log(data)
+          const { data } = await axios<ApiCountry[]>(BASE_URL + 'alpha?codes=' + codes.join(','))
+          console.log(data)
 
-            set(
-              state => {
-                state.neighbors = data
-                  .map((country: Country) => country.name?.common)
-                  .filter((name): name is string => Boolean(name))
-                  .toSorted()
-              },
-              false,
-              'fetchNeighbors/success',
-            )
-          } catch (error) {
-            toast.error('Ошибка при загрузке Neighbors')
-            console.error('Ошибка при загрузке Neighbors:', error)
-          }
+          set(
+            state => {
+              state.neighbors = data
+                .map((country: Country) => country.name?.common)
+                .filter((name): name is string => Boolean(name))
+                .toSorted()
+            },
+            false,
+            'fetchNeighbors/success',
+          )
         },
       }
     )),
