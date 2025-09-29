@@ -1,14 +1,10 @@
 import { v7 as uuidv7 } from 'uuid'
 
-import { type ApiCountry, type Country } from '@shared/types/countries'
+import { type Country } from '@shared/types/countries'
 
-export const createCountry = (countryArray: ApiCountry[]): Country => {
-  if (!countryArray.length) {
-    throw new Error('Empty country array')
-  }
-
+export const createCountry = (country: Country) => {
   return {
-    ...countryArray[0],
+    ...country,
     id: uuidv7(),
   }
 }

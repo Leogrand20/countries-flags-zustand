@@ -5,7 +5,7 @@ import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
 
 import { BASE_URL } from '@shared/api/config'
-import { type ApiCountry, type CountryState } from '@shared/types/countries'
+import { type Countries, type CountryState } from '@shared/types/countries'
 import { createCountry } from '@entities/country/lib/createCountry.ts'
 
 export const useCountry = create<CountryState>()(
@@ -25,12 +25,12 @@ export const useCountry = create<CountryState>()(
           )
 
           try {
-            const { data } = await axios<ApiCountry[]>(BASE_URL + 'name/' + countryName)
+            const { data } = await axios<Countries>(BASE_URL + 'name/' + countryName)
 
             set(
               state => {
                 state.isLoading = false
-                state.country = createCountry(data)
+                state.country = createCountry(data[0])
               },
               false,
               'fetchCountry/success',

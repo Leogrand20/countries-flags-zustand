@@ -20,23 +20,21 @@ interface Languages {
   [key: string]: string
 }
 
-export type Country = {
-  id?: string
-  flags?: Flags
-  name?: Name
-  capital?: string[]
-  region?: Region
-  subregion?: string
-  population?: number
-  tld?: string[]
-  currencies?: Currencies
-  borders?: string[]
-  languages?: Languages
-}
+export type Country = Partial<{
+  id: string
+  flags: Flags
+  name: Name
+  capital: string[]
+  region: Region
+  subregion: string
+  population: number
+  tld: string[]
+  currencies: Currencies
+  borders: string[]
+  languages: Languages
+}>
 
 export type Countries = Country[]
-
-export type ApiCountry = Omit<Country, 'id'>
 
 export type CountriesItemProps = Pick<
   Country,
