@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify'
+import axios from 'axios'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { create } from 'zustand/react'
@@ -24,10 +25,7 @@ export const useCountries = create<CountriesState>()(
           )
 
           try {
-            const res = await fetch(BASE_URL + 'all?fields=name,capital,flags,population,region')
-            const data = (
-              await res.json()
-            ) as Countries
+            const { data } = await axios<Countries>(BASE_URL + 'all?fields=name,capital,flags,population,region')
 
             set(
               state => {
