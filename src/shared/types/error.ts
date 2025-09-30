@@ -1,8 +1,8 @@
-export type ErrorState = {
+type ErrorState = {
   error: string
 }
 
-export type ErrorActions = {
+type ErrorActions = {
   setError: (errorMessage: string) => void
   clearError: () => void
 }

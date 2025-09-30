@@ -6,7 +6,7 @@ export type FiltersState = {
   sortMode: string | null
 }
 
-export type FiltersActions = {
+type FiltersActions = {
   setSearchFilter: (value: string) => void
   setRegionFilter: (region: Region) => void
   setSortModeFilter: (mode: string | null) => void
