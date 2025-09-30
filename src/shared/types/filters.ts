@@ -1,12 +1,12 @@
 import { type Region } from '@shared/types/regions.ts'
 
-export interface FiltersState {
+export type FiltersState = {
   search: string
   region: Region
   sortMode: string | null
 }
 
-export interface FiltersActions {
+export type FiltersActions = {
   setSearchFilter: (value: string) => void
   setRegionFilter: (region: Region) => void
   setSortModeFilter: (mode: string | null) => void
