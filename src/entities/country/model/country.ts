@@ -1,4 +1,3 @@
-import { toast } from 'react-toastify'
 import axios from 'axios'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
@@ -7,6 +6,7 @@ import { create } from 'zustand/react'
 import { BASE_URL } from '@shared/api/config'
 import { type Countries, type CountryState } from '@shared/types/countries'
 import { createCountry } from '@entities/country/lib/createCountry.ts'
+import { useError } from '@entities/country/model/error.ts'
 
 export const useCountry = create<CountryState>()(
   devtools(
@@ -44,8 +44,8 @@ export const useCountry = create<CountryState>()(
               'fetchCountry/error',
             )
 
-            toast.error('Ошибка при загрузке Country')
-            console.error('Ошибка при загрузке Country:', error)
+            const errorMessage = error instanceof Error ? error.message : 'Ошибка при загрузке Country'
+            useError.getState().setError(errorMessage)
           }
         },
       }
