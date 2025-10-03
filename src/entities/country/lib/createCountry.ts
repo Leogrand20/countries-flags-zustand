@@ -1,10 +1,8 @@
 import { v7 as uuidv7 } from 'uuid'
 
-import { type Country } from '@shared/types/countries'
+import { type Countries, type Country } from '@shared/types/countries'
 
-export const createCountry = (country: Country) => {
-  return {
-    ...country,
-    id: uuidv7(),
-  }
-}
+export const createCountry = <T extends Country | Countries>(data: T): T =>
+Array.isArray(data)
+  ? (data.map(country => ({...country, id: uuidv7()})) as T)
+  : ({...data, id: uuidv7()})
