@@ -27,10 +27,11 @@ export default [
       'public',
       '.husky',
       '.DS_Store',
+      '**/*.md',
     ],
   },
 
-  // === TypeScript-файлы ===
+  // === TypeScript ===
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -75,18 +76,16 @@ export default [
         'warn',
         { argsIgnorePattern: '^_' },
       ],
-
-      // ✅ новое правило — требуем import type для типов
       '@typescript-eslint/consistent-type-imports': [
         'warn',
-        {
-          prefer: 'type-imports',
-          fixStyle: 'inline-type-imports',
-        },
+        { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
       ],
 
       ...(react.configs.recommended?.rules || {}),
-      ...(reactHooks.configs.recommended?.rules || {}),
+
+      // react-hooks v6 — теперь нужно явно прописать правила
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
 
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
@@ -118,13 +117,8 @@ export default [
               '^@shared',
               '^@entities',
               '^@features',
-              '^@components',
               '^@widgets',
-              '^@layouts',
               '^@pages',
-              '^@hooks',
-              '^@utils',
-              '^@store',
             ],
             ['^[^.]'],
             ['^\\.'],
@@ -136,7 +130,7 @@ export default [
     },
   },
 
-  // === JavaScript-файлы ===
+  // === JavaScript ===
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
@@ -169,7 +163,10 @@ export default [
     rules: {
       ...(js.configs.recommended?.rules || {}),
       ...(react.configs.recommended?.rules || {}),
-      ...(reactHooks.configs.recommended?.rules || {}),
+
+      // react-hooks v6
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
 
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
@@ -199,13 +196,8 @@ export default [
               '^@shared',
               '^@entities',
               '^@features',
-              '^@components',
               '^@widgets',
-              '^@layouts',
               '^@pages',
-              '^@hooks',
-              '^@utils',
-              '^@store',
             ],
             ['^[^.]'],
             ['^\\.'],
@@ -251,9 +243,7 @@ export default [
     files: ['**/*.md/*.{ts,tsx}'],
     languageOptions: {
       parser: tseslint.parser,
-      parserOptions: {
-        ecmaFeatures: { jsx: true },
-      },
+      parserOptions: { ecmaFeatures: { jsx: true } },
     },
     rules: {
       'no-undef': 'off',

@@ -21,6 +21,7 @@
       "@img/*": ["src/shared/assets/img/*"],
       "@icons/*": ["src/shared/assets/icons/*"]
     },
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -33,6 +34,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "outDir": "dist",
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -50,8 +52,5 @@
     "vite.config.ts",
     "webpack.alias.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "exclude": ["node_modules", "dist"]
 }
