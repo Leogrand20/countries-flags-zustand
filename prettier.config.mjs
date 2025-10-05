@@ -9,6 +9,7 @@ const config = {
   jsxSingleQuote: true,
   bracketSpacing: true,
   bracketSameLine: false,
+  arrowParens: 'avoid',
   overrides: [
     {
       files: ['*.md', '*.mdx'],
