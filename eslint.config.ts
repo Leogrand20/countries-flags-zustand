@@ -28,6 +28,7 @@ export default [
       '.husky',
       '.DS_Store',
       '**/*.md',
+      'prettier.config.ts',
     ],
   },
 
