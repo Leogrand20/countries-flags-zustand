@@ -1,7 +1,8 @@
-// noinspection JSUnusedGlobalSymbols
-export default {
+import type { Config } from 'svgo'
+
+const config: Config = {
   multipass: false, // boolean
-  datauri: 'base64', // 'base64'|'enc'|'unenc'
+  datauri: 'base64', // 'base64' | 'enc' | 'unenc'
   js2svg: {
     indent: 4, // number
     pretty: false, // boolean
@@ -19,3 +20,5 @@ export default {
     },
   ],
 }
+// noinspection JSUnusedGlobalSymbols
+export default config

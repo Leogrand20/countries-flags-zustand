@@ -28,6 +28,7 @@ export default [
       '.husky',
       '.DS_Store',
       '**/*.md',
+      'svgo.config.ts',
       'prettier.config.ts',
     ],
   },

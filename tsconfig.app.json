@@ -49,6 +49,7 @@
     "src",
     "index.tsx",
     "eslint.config.ts",
+    "svgo.config.ts",
     "prettier.config.ts",
     "vite.config.ts",
     "webpack.alias.ts"
