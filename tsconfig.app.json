@@ -46,9 +46,10 @@
     "noImplicitReturns": false // all returns - not toggled
   },
   "include": [
-    "src/",
+    "src",
     "index.tsx",
     "eslint.config.ts",
+    "prettier.config.ts",
     "vite.config.ts",
     "webpack.alias.ts"
   ],

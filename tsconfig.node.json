@@ -20,5 +20,13 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite.config.ts"]
+  "include": [
+    "src",
+    "index.tsx",
+    "eslint.config.ts",
+    "prettier.config.ts",
+    "vite.config.ts",
+    "webpack.alias.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
 }
