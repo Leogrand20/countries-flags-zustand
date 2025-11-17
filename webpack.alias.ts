@@ -7,7 +7,7 @@ const __dirname = dirname(__filename)
 export const alias: Record<string, string> = {
   '@': resolve(__dirname, 'src'),
   '@public': resolve(__dirname, 'public'),
-  '@css': resolve(__dirname, 'src/app/styles'),
+  '@styles': resolve(__dirname, 'src/app/styles'),
   '@icons': resolve(__dirname, 'src/shared/assets/icons'),
   '@img': resolve(__dirname, 'src/shared/assets/img'),
   '@fonts': resolve(__dirname, 'src/shared/assets/fonts'),

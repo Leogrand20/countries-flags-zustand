@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["eslint-plugin-jsx-a11y", "node", "react", "react-dom"],
+    "types": ["react", "react-dom"],
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -9,17 +9,16 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@styles/*": ["src/app/styles/*"],
+      "@icons/*": ["src/shared/assets/icons/*"],
+      "@img/*": ["src/shared/assets/img/*"],
+      "@fonts/*": ["src/shared/assets/fonts/*"],
       "@app/*": ["src/app/*"],
       "@shared/*": ["src/shared/*"],
       "@entities/*": ["src/entities/*"],
       "@features/*": ["src/features/*"],
       "@widgets/*": ["src/widgets/*"],
-      "@pages/*": ["src/pages/*"],
-      /* алиасы для Tailwind и статических ассетов */
-      "@css/*": ["src/app/styles/*"],
-      "@fonts/*": ["src/shared/assets/fonts/*"],
-      "@img/*": ["src/shared/assets/img/*"],
-      "@icons/*": ["src/shared/assets/icons/*"]
+      "@pages/*": ["src/pages/*"]
     },
 
     /* Bundler mode */
@@ -45,14 +44,6 @@
     "noUncheckedIndexedAccess": false, // dynamic fields: obj.key => obj['key'].length
     "noImplicitReturns": false // all returns - not toggled
   },
-  "include": [
-    "src",
-    "index.tsx",
-    "eslint.config.ts",
-    "svgo.config.ts",
-    "prettier.config.ts",
-    "vite.config.ts",
-    "webpack.alias.ts"
-  ],
+  "include": ["src", "index.tsx"],
   "exclude": ["node_modules", "dist"]
 }

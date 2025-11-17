@@ -1,3 +1,15 @@
 {
-  "extends": "./tsconfig.app.json"
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "types": ["node", "react", "react-dom"],
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": ["src", "*.ts", "*.tsx"],
+  "exclude": ["dist", "node_modules"]
 }
